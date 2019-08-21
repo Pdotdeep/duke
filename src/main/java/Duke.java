@@ -13,13 +13,13 @@ public class Duke {
         echo(s);
         printLine();
     }
-    static void printList(ArrayList<String> items){
+    static void printList(ArrayList<Task> items){
         int i  =1;
         printLine();
-        for(String item : items){
+        for(Task item : items){
             String respondMsg = "";
             respondMsg += (Integer.toString(i) + ". ");
-            respondMsg += item;
+            respondMsg += item.toString();
             i++;
             echo(respondMsg);
         }
@@ -32,7 +32,7 @@ public class Duke {
         echo("Hello! I am Duke");
         echo("What can i Do for you?");
         printLine();
-        ArrayList<String> items = new ArrayList<String>();
+        ArrayList<Task> items = new ArrayList<Task>();
         while(true){
             String s = scan.nextLine();
             if(s.equals("bye")){
@@ -41,11 +41,48 @@ public class Duke {
             }else if(s.equals("list")){
                 printList(items);
             }else{
-                items.add(s);
-                response("added: " + s);
+                String[] tokens=s.split("\\s");
+
+                if(tokens[0].equals("done")){
+                    items.get(Integer.parseInt(tokens[1])-1).setDone(true);
+                    printLine();
+                    echo("Nice! i have marked this task as done:");
+                    echo("  " + items.get(Integer.parseInt(tokens[1])-1).toString());
+                    printLine();
+                }else{
+                    Task newTask = new Task(s);
+                    items.add(newTask);
+                    response("added: " + s);
+                }
+
+
             }
 
         }
 
     }
+
+    public static class Task {
+        private boolean Done = false;
+        private String TaskName;
+
+        Task(String TaskName){
+            this.TaskName = TaskName;
+            this.Done = false;
+        }
+
+        public void setDone(boolean done){
+            this.Done = done;
+        }
+
+        public String getStatusIcon() {
+            return (Done ? "\u2713" : "\u2718"); //return tick or X symbols
+        }
+
+        @Override
+        public String toString() {
+            return("[" + getStatusIcon() + "] " + TaskName);
+        }
+    }
+
 }
