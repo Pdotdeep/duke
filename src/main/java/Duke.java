@@ -13,6 +13,19 @@ public class Duke {
         echo(s);
         printLine();
     }
+    static void printList(ArrayList<String> items){
+        int i  =1;
+        printLine();
+        for(String item : items){
+            String respondMsg = "";
+            respondMsg += (Integer.toString(i) + ". ");
+            respondMsg += item;
+            i++;
+            echo(respondMsg);
+        }
+        printLine();
+
+    }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         printLine();
@@ -25,11 +38,13 @@ public class Duke {
             if(s.equals("bye")){
                 response("Bye. Hope to see you again Soon!");
                 break;
+            }else if(s.equals("list")){
+                printList(items);
+            }else{
+                items.add(s);
+                response("added: " + s);
             }
-//            else if(s.equals("list")){
-//                System.out.println(items);
-//            }
-            response(s);
+
         }
 
     }
