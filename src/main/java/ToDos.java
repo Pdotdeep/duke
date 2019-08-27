@@ -1,7 +1,10 @@
 public class ToDos extends Task{
 
-    ToDos(String TaskName){
-        super(TaskName);
+
+
+    ToDos(String TaskName ){
+        super(TaskName , 1);
+
     }
 
     public String toString(){

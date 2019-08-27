@@ -1,6 +1,3 @@
-
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Duke {
@@ -8,6 +5,7 @@ public class Duke {
     static final int TODO = 1;
     static final int DEADLINE = 2;
     static final int EVENT = 3;
+
 
 
     public static void main(String[] args) {
@@ -38,20 +36,21 @@ public class Duke {
 
                     }else if(tokens[0].equals("event")){
                         newDuke.addTasks(s , EVENT);
-                    }else{
+                    }else {
+                        throw new UnknownCommandException("Unknown Command");
 
                     }
-
-
                 }
 
+            }catch(UnknownCommandException e){
+                System.out.println(e);
 
-
-            }catch(Exception e){
-
+            }catch (IncompleteCommandException e){
+                System.out.println(e);
             }
 
         }
+
 
     }
 

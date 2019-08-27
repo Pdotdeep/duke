@@ -2,13 +2,20 @@ public class Task {
     private boolean Done = false;
     private String TaskName;
 
-    Task(String TaskName){
+    private int Type;
+
+    Task(String TaskName , int Type){
         this.TaskName = TaskName;
+        this.Type = Type;
         this.Done = false;
     }
     Task(){
         this.TaskName = "";
         this.Done = false;
+    }
+
+    public boolean getDoneStatus(){
+        return Done;
     }
 
     public String getTaskName(){
@@ -26,5 +33,10 @@ public class Task {
     @Override
     public String toString() {
         return("[" + getStatusIcon() + "] " + TaskName);
+    }
+
+    public int getType() {
+
+        return Type;
     }
 }

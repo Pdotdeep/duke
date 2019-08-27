@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class ListOfTasks {
@@ -20,7 +21,7 @@ public class ListOfTasks {
     }
 
     void printLine(){
-        System.out.println("\t_______________________________________");
+        System.out.println("\t________________________________________________");
     }
     void echo(String str){
         System.out.println("\t"  + str);
@@ -47,9 +48,48 @@ public class ListOfTasks {
         printLine();
 
     }
+    String getFormattedList(){
+        String output = "";
+        for(Task t : list){
+            output += t.getType();
+            output += " ";
+            output += t.getTaskName();
+            output += " ";
+            output += t.getDoneStatus();
+            if(t.getType() != TODO){
+                //ADD DEADLINE
+            }
+        }
 
-    public String[] getNameAndDate(String s , int startOffset){
+        return output;
+
+    }
+
+    void saveToFile(){
+        try{
+            FileWriter fw=new FileWriter("./data/duke.txt");
+            String formattedList = getFormattedList();
+
+            fw.write("Welcome to javaTpoint.");
+            fw.close();
+        }catch(Exception e){System.out.println(e);}
+        System.out.println("Success...");
+
+    }
+
+    public String[] getNameAndDate(String s , int startOffset) throws IncompleteCommandException {
         int endIndex = s.indexOf('/');
+
+        if(s.length() <= startOffset){
+            if(startOffset == TODOOFFSET){
+                throw new IncompleteCommandException("todo");
+            }else if(startOffset == DEADLINEOFFSET){
+                throw new IncompleteCommandException("deadline");
+            }else if(startOffset == EVENTOFFSET){
+                throw new IncompleteCommandException("event");
+            }
+
+        }
         if(endIndex == -1){
             String taskName = s.substring(startOffset);
             return new String[]{taskName};
@@ -63,7 +103,7 @@ public class ListOfTasks {
 
     }
 
-    void addTasks(String s , int type){
+    void addTasks(String s , int type) throws IncompleteCommandException {
 
         Task tempTask;
 
@@ -89,6 +129,8 @@ public class ListOfTasks {
         echo("Now you have "+ list.size() + " items in the list" );
         printLine();
 
+        saveToFile();
+
     }
 
     void complete(int completedTaskIndex){
@@ -97,6 +139,8 @@ public class ListOfTasks {
         echo("Nice! i have marked this task as done:");
         echo("  " + list.get(completedTaskIndex).toString());
         printLine();
+
+        saveToFile();
     }
 
 }

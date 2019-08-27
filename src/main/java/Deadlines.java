@@ -1,11 +1,13 @@
 public class Deadlines extends Task {
 
-    String DeadLineDate;
+    private String DeadLineDate;
 
-    Deadlines(String TaskName , String DeadLineDate){
-        super(TaskName);
+    Deadlines(String TaskName , String DeadLineDate ){
+        super(TaskName , 2);
         this.DeadLineDate = DeadLineDate;
     }
+
+
 
     public String toString(){
         return("[D][" + getStatusIcon() + "] " + this.getTaskName() + " (by: " + this.DeadLineDate + ")") ;
