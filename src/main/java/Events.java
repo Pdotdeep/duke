@@ -1,15 +1,17 @@
+import java.util.Date;
+
 public class Events extends Task{
-    private String EventDate;
-    Events(String TaskName , String EventDate ){
+    private MyDate EventDate;
+    Events(String TaskName , MyDate EventDate ){
         super(TaskName , 3);
         this.EventDate = EventDate;
     }
-    Events(String TaskName , String EventDate , boolean done){
+    Events(String TaskName , MyDate EventDate , boolean done){
         super(TaskName , 3 , done);
         this.EventDate = EventDate;
     }
 
-    public String getDate(){
+    public MyDate getDate(){
         return EventDate;
     }
 

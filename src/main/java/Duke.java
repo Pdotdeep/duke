@@ -1,3 +1,5 @@
+import java.io.File;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Duke {
@@ -11,9 +13,7 @@ public class Duke {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        ListOfTasks newDuke = new ListOfTasks();
-
-        newDuke.loadTasks();
+        ListOfTasks newDuke = new ListOfTasks(FileParser.loadTasks());
 
         while(true){
             String s = scan.nextLine();
@@ -48,6 +48,8 @@ public class Duke {
                 System.out.println(e);
 
             }catch (IncompleteCommandException e){
+                System.out.println(e);
+            }catch (ParseException e){
                 System.out.println(e);
             }
 
