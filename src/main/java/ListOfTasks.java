@@ -1,5 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
 public class ListOfTasks {
     private ArrayList<Task> list;
@@ -54,11 +58,19 @@ public class ListOfTasks {
             output += t.getType();
             output += " ";
             output += t.getTaskName();
-            output += " ";
+            output += " | ";
             output += t.getDoneStatus();
-            if(t.getType() != TODO){
+            if(t.getType() == DEADLINE){
                 //ADD DEADLINE
+                output += " ";
+                output += ((Deadlines)t).getDate();
+            }else if(t.getType() == EVENT){
+                output += " ";
+                output += ((Events)t).getDate();
+            }else{
+                output += " NA ";
             }
+            output += " | ";
         }
 
         return output;
@@ -70,10 +82,71 @@ public class ListOfTasks {
             FileWriter fw=new FileWriter("./data/duke.txt");
             String formattedList = getFormattedList();
 
-            fw.write("Welcome to javaTpoint.");
+            fw.write(formattedList);
             fw.close();
         }catch(Exception e){System.out.println(e);}
         System.out.println("Success...");
+
+    }
+
+//    Date processDate(String dateBy){
+//        String []dates = dateBy.split("/");
+//        String []time = dateBy.split(" ");
+//
+//
+//    }
+
+    void loadTasks(){
+        try{
+            File file = new File("./data/duke.txt");
+            Scanner input=new Scanner(file);
+            input.useDelimiter(" +");
+
+            while(input.hasNext()){
+//                echo(input.next());
+                String taskType = input.next();
+//                echo(taskType + " HAHA");
+                String temp = input.next();
+//                echo(temp);
+                String taskName = "";
+                while(!temp.contains("|") && input.hasNext()){
+                    taskName += temp;
+                    taskName += " ";
+                    temp = input.next();
+                }
+//                echo(taskName + " HAHAHA");
+                String doneStatus = input.next();
+//                echo(doneStatus);
+
+                String tempDate = input.next();
+//                echo(tempDate);
+                String DateBy = "";
+                while(!tempDate.contains("|") && input.hasNext()){
+                    DateBy += tempDate;
+                    DateBy += " ";
+                    tempDate = input.next();
+//                    System.out.println("\nTest" + tempDate);
+                }
+                boolean doneStat;
+                if(doneStatus.equals("true")){
+                    doneStat = true;
+                }else{
+                    doneStat = false;
+                }
+
+                if(taskType.contains("1")){
+                    list.add(new ToDos(taskName , doneStat));
+                }else if(taskType.contains("2")){
+                    list.add(new Deadlines(taskName , DateBy,doneStat));
+                }else if(taskType.contains("3")){
+                    list.add(new Events(taskName , DateBy,doneStat));
+                }
+            }
+            printList();
+
+        }catch(FileNotFoundException e){
+            System.out.println("No Saved Data found!");
+        }
 
     }
 
@@ -90,6 +163,8 @@ public class ListOfTasks {
             }
 
         }
+        if(endIndex == -1 && startOffset == DEADLINEOFFSET){ throw new IncompleteCommandException("deadline"); }
+        if(endIndex == -1 && startOffset == EVENTOFFSET){ throw new IncompleteCommandException("event"); }
         if(endIndex == -1){
             String taskName = s.substring(startOffset);
             return new String[]{taskName};

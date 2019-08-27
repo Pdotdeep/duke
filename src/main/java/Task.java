@@ -4,6 +4,12 @@ public class Task {
 
     private int Type;
 
+    Task(String TaskName , int Type , boolean Done){
+        this.TaskName = TaskName;
+        this.Type = Type;
+        this.Done = Done;
+    }
+
     Task(String TaskName , int Type){
         this.TaskName = TaskName;
         this.Type = Type;

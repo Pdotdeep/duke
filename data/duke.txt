@@ -1,0 +1,1 @@
+1 add book  | false NA  | 3 read book  | true Sunday  | 2 read book and watch movie  | false Tues  | 

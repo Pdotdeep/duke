@@ -13,6 +13,8 @@ public class Duke {
 
         ListOfTasks newDuke = new ListOfTasks();
 
+        newDuke.loadTasks();
+
         while(true){
             String s = scan.nextLine();
 
