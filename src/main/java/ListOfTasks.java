@@ -1,3 +1,4 @@
+import java.awt.image.AreaAveragingScaleFilter;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -46,6 +47,20 @@ public class ListOfTasks {
             String respondMsg = "";
             respondMsg += (i + ". ");
             respondMsg += item.toString();
+            i++;
+            echo(respondMsg);
+        }
+        printLine();
+
+    }
+
+    void printList(ArrayList<Integer> foundIndexes){
+        int i  =1;
+        printLine();
+        for(int a : foundIndexes){
+            String respondMsg = "";
+            respondMsg += (i + ". ");
+            respondMsg += list.get(a).toString();
             i++;
             echo(respondMsg);
         }
@@ -119,6 +134,19 @@ public class ListOfTasks {
         printLine();
 
         FileParser.saveToFile(list);
+    }
+
+    ArrayList<Integer> find (String s){
+        ArrayList<Integer> foundIndexes = new ArrayList<Integer>();
+        int i = 0;
+        for(Task a : list){
+            if(a.contains(s)){
+                foundIndexes.add(i);
+            }
+            i++;
+        }
+
+        return foundIndexes;
     }
 
 }

@@ -20,6 +20,10 @@ public class Task {
         this.Done = false;
     }
 
+    public boolean contains(String s){
+        return TaskName.contains(s);
+    }
+
     public boolean getDoneStatus(){
         return Done;
     }

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Duke {
@@ -38,6 +39,9 @@ public class Duke {
 
                     }else if(tokens[0].equals("event")){
                         newDuke.addTasks(s , EVENT);
+                    }else if(tokens[0].equals("find")){
+                        ArrayList<Integer>foundItems = newDuke.find(tokens[1]);
+                        newDuke.printList(foundItems);
                     }else {
                         throw new UnknownCommandException("Unknown Command");
 
