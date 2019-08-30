@@ -113,10 +113,12 @@ public class ListOfTasks {
 
     void deleteTask(int toBeDeleted){
 
+
+        Task temp = list.get(toBeDeleted);
+        list.remove(toBeDeleted);
         printLine();
         echo("Noted. I have removed this task");
-        echo("  " + list.get(toBeDeleted).toString());
-        list.remove(toBeDeleted);
+        echo("  " + temp.toString());
         echo("Now you have "+ list.size() + " items in the list" );
         printLine();
 

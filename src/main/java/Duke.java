@@ -48,6 +48,8 @@ public class Duke {
                     }
                 }
 
+            }catch(IndexOutOfBoundsException e){
+                System.out.println("There is no such item in the list !!");
             }catch(UnknownCommandException e){
                 System.out.println(e);
 
