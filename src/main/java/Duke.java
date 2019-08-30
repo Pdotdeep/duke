@@ -39,7 +39,8 @@ public class Duke {
                     }else if(tokens[0].equals("event")){
                         newDuke.addTasks(s , EVENT);
                     }else if(tokens[0].equals("delete")){
-                        
+                        int deletedTask = Integer.parseInt(tokens[1])-1;
+                        newDuke.deleteTask(deletedTask);
 
                     }else {
                         throw new UnknownCommandException("Unknown Command");
