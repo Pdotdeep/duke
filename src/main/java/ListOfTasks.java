@@ -121,4 +121,16 @@ public class ListOfTasks {
         FileParser.saveToFile(list);
     }
 
+    ArrayList<Integer> find (String s){
+        ArrayList<Integer> foundIndexes = new ArrayList<Integer>();
+        int i = 0;
+        for(Task a : list){
+            if(a.contains(s)){
+                foundIndexes.add(i);
+            }
+            i++;
+        }
+        return foundIndexes;
+    }
+
 }
