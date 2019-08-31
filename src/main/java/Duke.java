@@ -20,6 +20,9 @@ public class Duke {
             String s = scan.nextLine();
 
             try{
+//                Parser.Commands command = Parser.getCommand(s);
+//                int payload = Parser.getPayload(command , s);
+//                
 
                 if(s.equals("bye")){
                     newDuke.closeApp();
@@ -42,12 +45,18 @@ public class Duke {
                     }else if(tokens[0].equals("find")){
                         ArrayList<Integer>foundItems = newDuke.find(tokens[1]);
                         newDuke.printList(foundItems);
+                    }else if(tokens[0].equals("delete")){
+                        int deletedTask = Integer.parseInt(tokens[1])-1;
+                        newDuke.deleteTask(deletedTask);
+
                     }else {
                         throw new UnknownCommandException("Unknown Command");
 
                     }
                 }
 
+            }catch(IndexOutOfBoundsException e){
+                System.out.println("There is no such item in the list !!");
             }catch(UnknownCommandException e){
                 System.out.println(e);
 

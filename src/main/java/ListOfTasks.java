@@ -126,6 +126,20 @@ public class ListOfTasks {
 
     }
 
+    void deleteTask(int toBeDeleted){
+
+
+        Task temp = list.get(toBeDeleted);
+        list.remove(toBeDeleted);
+        printLine();
+        echo("Noted. I have removed this task");
+        echo("  " + temp.toString());
+        echo("Now you have "+ list.size() + " items in the list" );
+        printLine();
+
+        FileParser.saveToFile(list);
+    }
+
     void complete(int completedTaskIndex){
         list.get(completedTaskIndex).setDone(true);
         printLine();
