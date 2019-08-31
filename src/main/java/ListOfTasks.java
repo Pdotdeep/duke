@@ -53,6 +53,19 @@ public class ListOfTasks {
 
     }
 
+    void printList(ArrayList<Integer> foundIndexes){
+        int i  =1;
+        printLine();
+        for(int a : foundIndexes){
+            String respondMsg = "";
+            respondMsg += (i + ". ");
+            respondMsg += list.get(a).toString();
+            i++;
+            echo(respondMsg);
+        }
+        printLine();
+    }
+
     public String[] getNameAndDate(String s , int startOffset) throws IncompleteCommandException {
         int endIndex = s.indexOf('/');
 

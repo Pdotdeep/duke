@@ -20,6 +20,10 @@ public class Task {
         this.Done = false;
     }
 
+    public boolean contains(String s){
+        return TaskName.toLowerCase().contains(s.toLowerCase());
+    }
+
     public boolean getDoneStatus(){
         return Done;
     }
