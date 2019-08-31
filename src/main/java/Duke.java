@@ -19,6 +19,9 @@ public class Duke {
             String s = scan.nextLine();
 
             try{
+//                Parser.Commands command = Parser.getCommand(s);
+//                int payload = Parser.getPayload(command , s);
+//                
 
                 if(s.equals("bye")){
                     newDuke.closeApp();
