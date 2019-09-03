@@ -16,20 +16,27 @@ public class MyDate {
 
     }
 
-    public void parseString(String dateBy) throws ParseException {
+    public void parseString(String dateBy) throws ParseException , NumberFormatException , ArrayIndexOutOfBoundsException{
 
-        String []dates = dateBy.split(" ");
-        int time = Integer.parseInt(dates[1]);
-        int hour = time/100;
-        int min = time%100;
+        try {
 
-        String dateInStringForm = dates[0] + " " + String.valueOf(hour) + ":" + String.valueOf(min);
+            String []dates = dateBy.split(" ");
+            int time = Integer.parseInt(dates[1]);
+            int hour = time/100;
+            int min = time%100;
 
-        this.date =  new SimpleDateFormat("dd/MM/yyyy hh:mm").parse(dateInStringForm);
+            String dateInStringForm = dates[0] + " " + String.valueOf(hour) + ":" + String.valueOf(min);
+
+            this.date =  new SimpleDateFormat("dd/MM/yyyy hh:mm").parse(dateInStringForm);
+
+
+
+        } catch (Exception e) {
+
+        }
 
 
     }
-
     public Date getDate(){
         return this.date;
 

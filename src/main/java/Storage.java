@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileParser {
+public class Storage {
 
     static final int TODO = 1;
     static final int DEADLINE = 2;
@@ -108,7 +108,7 @@ public class FileParser {
             }
 
         }catch(FileNotFoundException e){
-            System.out.println("No Saved Data found!");
+            UI.printMsg("No Saved Data found!");
         }
 
         return list;

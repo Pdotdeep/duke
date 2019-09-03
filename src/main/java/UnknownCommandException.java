@@ -5,16 +5,14 @@ public class UnknownCommandException extends Exception {
     }
 
 
-    String printLine(){
-        return "\t____________________________________________________\n";
-    }
+
     String errMsg(){
-        return "\t☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n";
+        return "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
     }
 
 
     @Override
     public String toString() {
-        return printLine()+errMsg()+printLine();
+        return errMsg();
     }
 }

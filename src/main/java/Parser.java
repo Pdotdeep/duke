@@ -31,19 +31,22 @@ public class Parser {
 
     }
 
-    static int getPayload(Commands c , String s){
+    static String getPayload(Commands c , String s){
 
         String[] tokens=s.split("\\s");
         if(c == Commands.done){
             int completedTask = Integer.parseInt(tokens[1])-1;
-            return completedTask;
+            return String.valueOf(completedTask);
 
-        }else if(c == Commands.done){
+        }else if(c == Commands.delete){
             int deletedTask = Integer.parseInt(tokens[1])-1;
-            return deletedTask;
+            return String.valueOf(deletedTask);
+
+        }else if(c == Commands.find){
+            return String.valueOf(tokens[1]);
 
         }else {
-            return -1;
+            return null;
 
         }
 

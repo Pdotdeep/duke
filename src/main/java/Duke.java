@@ -1,4 +1,3 @@
-import java.io.File;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,40 +13,41 @@ public class Duke {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        ListOfTasks newDuke = new ListOfTasks(FileParser.loadTasks());
+        ListOfTasks newDuke = new ListOfTasks(Storage.loadTasks());
 
         while(true){
             String s = scan.nextLine();
 
             try{
-//                Parser.Commands command = Parser.getCommand(s);
+                newDuke.completeCommand(s);
+                Parser.Commands command = Parser.getCommand(s);
 //                int payload = Parser.getPayload(command , s);
-//                
 
-                if(s.equals("bye")){
+                if(command == Parser.Commands.bye){
                     newDuke.closeApp();
                     break;
-                }else if(s.equals("list")){
+                }else if(command == Parser.Commands.list){
                     newDuke.printList();
                 }else{
-                    String[] tokens=s.split("\\s");
-                    if(tokens[0].equals("done")){
-                        int completedTask = Integer.parseInt(tokens[1])-1;
-                        newDuke.complete(completedTask);
-                    }else if(tokens[0].equals("todo")){
-                        newDuke.addTasks(s , TODO);
+//                    String[] tokens=s.split("\\s");
 
-                    }else if(tokens[0].equals("deadline")){
+                    if(command == Parser.Commands.done){
+                        String completedTask = Parser.getPayload(Parser.Commands.done , s);
+                        newDuke.complete(Integer.parseInt(completedTask));
+                    }else if(command == Parser.Commands.todo){
+                        newDuke.addTasks(s , TODO);
+                    }else if(command == Parser.Commands.deadline){
                         newDuke.addTasks(s , DEADLINE);
 
-                    }else if(tokens[0].equals("event")){
+                    }else if(command == Parser.Commands.event){
                         newDuke.addTasks(s , EVENT);
-                    }else if(tokens[0].equals("find")){
-                        ArrayList<Integer>foundItems = newDuke.find(tokens[1]);
+                    }else if(command == Parser.Commands.find){
+                        String keyword = Parser.getPayload(Parser.Commands.find , s);
+                        ArrayList<Integer>foundItems = newDuke.find(keyword);
                         newDuke.printList(foundItems);
-                    }else if(tokens[0].equals("delete")){
-                        int deletedTask = Integer.parseInt(tokens[1])-1;
-                        newDuke.deleteTask(deletedTask);
+                    }else if(command == Parser.Commands.delete){
+                        String deletedTask = Parser.getPayload(Parser.Commands.delete , s);
+                        newDuke.deleteTask(Integer.parseInt(deletedTask));
 
                     }else {
                         throw new UnknownCommandException("Unknown Command");
@@ -56,14 +56,13 @@ public class Duke {
                 }
 
             }catch(IndexOutOfBoundsException e){
-                System.out.println("There is no such item in the list !!");
+                UI.printError("There is no such item in the list !!");
             }catch(UnknownCommandException e){
-                System.out.println(e);
-
+                UI.printError(e.toString());
             }catch (IncompleteCommandException e){
-                System.out.println(e);
+                UI.printError(e.toString());
             }catch (ParseException e){
-                System.out.println(e);
+                UI.printError(e.toString());
             }
 
         }

@@ -5,16 +5,13 @@ public class IncompleteCommandException  extends Exception{
         ErrType = err;
     }
 
-    String printLine(){
-        return "\t_______________________________________\n";
-    }
     String errMsg(){
-        return "\t ☹ OOPS!!! The description of a " + ErrType + " cannot be empty.\n";
+        return "☹ OOPS!!! The description of a " + ErrType + " cannot be empty.";
     }
 
 
     @Override
     public String toString() {
-        return printLine()+errMsg()+printLine();
+        return errMsg();
     }
 }
