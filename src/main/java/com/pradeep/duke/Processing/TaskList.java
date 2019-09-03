@@ -1,5 +1,10 @@
+package com.pradeep.duke.Processing;
+
 import java.text.ParseException;
 import java.util.ArrayList;
+import com.pradeep.duke.Exceptions.*;
+import com.pradeep.duke.Activities.*;
+import com.pradeep.duke.MyDate;
 
 public class TaskList {
 
@@ -36,7 +41,7 @@ public class TaskList {
         return new String[]{taskName , dateBy};
 
     }
-    static void addTasks( ArrayList<Task> list , String s , int type) throws IncompleteCommandException, ParseException {
+    public static void addTasks( ArrayList<Task> list , String s , int type) throws IncompleteCommandException, ParseException {
 
         Task tempTask;
 
@@ -70,7 +75,7 @@ public class TaskList {
 
     }
 
-    static void deleteTask(ArrayList<Task> list ,int toBeDeleted){
+    public static void deleteTask(ArrayList<Task> list ,int toBeDeleted){
 
 
         Task temp = list.get(toBeDeleted);
@@ -86,7 +91,7 @@ public class TaskList {
         Storage.saveToFile(list);
     }
 
-    static void complete(ArrayList<Task> list ,int completedTaskIndex){
+    public static void complete(ArrayList<Task> list ,int completedTaskIndex){
         list.get(completedTaskIndex).setDone(true);
 //        UI.printLine();
         UI.printMsg("Nice! i have marked this task as done:" , list.get(completedTaskIndex).toString());
@@ -95,7 +100,7 @@ public class TaskList {
         Storage.saveToFile(list);
     }
 
-    static ArrayList<Integer> find (ArrayList<Task> list , String s){
+    public static ArrayList<Integer> find (ArrayList<Task> list , String s){
         ArrayList<Integer> foundIndexes = new ArrayList<Integer>();
         int i = 0;
         for(Task a : list){

@@ -1,13 +1,15 @@
+package com.pradeep.duke.Activities;
+
 public class ToDos extends Task{
 
 
 
-    ToDos(String TaskName ){
+    public ToDos(String TaskName){
         super(TaskName , 1);
 
     }
 
-    ToDos(String TaskName , boolean done){
+    public ToDos(String TaskName, boolean done){
         super(TaskName , 1 , done);
 
     }

@@ -1,21 +1,23 @@
+package com.pradeep.duke.Activities;
+
 public class Task {
     private boolean Done = false;
     private String TaskName;
 
     private int Type;
 
-    Task(String TaskName , int Type , boolean Done){
+    public Task(String TaskName , int Type , boolean Done){
         this.TaskName = TaskName;
         this.Type = Type;
         this.Done = Done;
     }
 
-    Task(String TaskName , int Type){
+    public Task(String TaskName , int Type){
         this.TaskName = TaskName;
         this.Type = Type;
         this.Done = false;
     }
-    Task(){
+    public Task(){
         this.TaskName = "";
         this.Done = false;
     }

@@ -1,6 +1,7 @@
+package com.pradeep.duke.Exceptions;
 public class UnknownCommandException extends Exception {
 
-    UnknownCommandException(String err){
+    public UnknownCommandException(String err){
         super(err);
     }
 

@@ -1,4 +1,7 @@
+package com.pradeep.duke.Processing;
+
 import java.util.ArrayList;
+import com.pradeep.duke.Activities.*;
 
 public class UI {
 
@@ -9,13 +12,13 @@ public class UI {
         System.out.println("\t"  + str);
     }
 
-    static void printError(String errMsg){
+    public static void printError(String errMsg){
         printLine();
         echo(errMsg);
         printLine();
     }
 
-    static void printMsg(String ... Msg){
+    public static void printMsg(String... Msg){
         printLine();
         for(String s :Msg){
             echo(s);
@@ -23,7 +26,7 @@ public class UI {
         printLine();
     }
 
-    static void printTasks(ArrayList<Task> tasks){
+    public static void printTasks(ArrayList<Task> tasks){
         printLine();
         int i = 1;
         for(Task s :tasks){
@@ -32,7 +35,7 @@ public class UI {
         }
         printLine();
     }
-    static void printMsges(ArrayList<String> Msg){
+    public static void printMsges(ArrayList<String> Msg){
         printLine();
         for(String s :Msg){
             echo(s);

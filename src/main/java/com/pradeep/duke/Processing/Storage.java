@@ -1,3 +1,4 @@
+package com.pradeep.duke.Processing;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -5,13 +6,20 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.pradeep.duke.Exceptions.*;
+
+import com.pradeep.duke.Activities.*;
+import com.pradeep.duke.Exceptions.*;
+import com.pradeep.duke.Processing.*;
+import com.pradeep.duke.MyDate;
+
 public class Storage {
 
     static final int TODO = 1;
     static final int DEADLINE = 2;
     static final int EVENT = 3;
 
-    static String getFormattedList(ArrayList<Task> list){
+    public static String getFormattedList(ArrayList<Task> list){
 
 
 
@@ -39,7 +47,7 @@ public class Storage {
 
     }
 
-    static void saveToFile(ArrayList<Task> list){
+    public static void saveToFile(ArrayList<Task> list){
         try{
             FileWriter fw=new FileWriter("./data/duke.txt");
             String formattedList = getFormattedList(list);
@@ -50,7 +58,7 @@ public class Storage {
 
     }
 
-    static ArrayList<Task> loadTasks(){
+    public static ArrayList<Task> loadTasks(){
 
         ArrayList<Task> list = new ArrayList<Task>();
 

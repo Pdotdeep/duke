@@ -1,6 +1,9 @@
+package com.pradeep.duke.Exceptions;
+
+
 public class IncompleteCommandException  extends Exception{
     private String ErrType;
-    IncompleteCommandException(String err){
+    public IncompleteCommandException(String err){
         super(err);
         ErrType = err;
     }

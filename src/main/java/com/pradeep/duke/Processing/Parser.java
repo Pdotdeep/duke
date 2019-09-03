@@ -1,9 +1,11 @@
+package com.pradeep.duke.Processing;
+
 public class Parser {
     public enum Commands{
         delete, list , todo, event , deadline , find ,bye, done ,unknown
     }
 
-    static Commands getCommand(String s){
+    public static Commands getCommand(String s){
 
         if(s.equals("bye")){
             return Commands.bye;
@@ -31,7 +33,7 @@ public class Parser {
 
     }
 
-    static String getPayload(Commands c , String s){
+    public static String getPayload(Commands c, String s){
 
         String[] tokens=s.split("\\s");
         if(c == Commands.done){

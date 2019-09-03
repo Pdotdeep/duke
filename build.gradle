@@ -16,7 +16,7 @@ shadowJar {
     archiveAppendix = null
 }
 
-group 'seedu.duke'
+group 'com.pradeep.duke'
 version '0.1.0'
 
 repositories {
@@ -25,7 +25,7 @@ repositories {
 
 application {
     // Change this to your main class.
-    mainClassName = "Duke"
+    mainClassName = "com.pradeep.duke.Duke"
 }
 
 dependencies {

@@ -1,7 +1,10 @@
+package com.pradeep.duke.Activities;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.ArrayList;
+import com.pradeep.duke.Processing.*;
+import com.pradeep.duke.Exceptions.*;
 
 public class ListOfTasks {
     private ArrayList<Task> list;
@@ -18,19 +21,19 @@ public class ListOfTasks {
         UI.printMsg("Hello! I am Duke" , "What can i do for you?" );
     }
 
-    ListOfTasks(ArrayList<Task> list){
+    public ListOfTasks(ArrayList<Task> list){
         this.list = list;
         initiateDuke();
 
     }
 
-    void closeApp(){response("Bye. Hope to see you again Soon!");}
+    public void closeApp(){response("Bye. Hope to see you again Soon!");}
 
     void response(String s){
         UI.printMsg(s);
     }
 
-    void printList(){
+    public void printList(){
         int i  =1;
 
         UI.printTasks(this.list);
@@ -48,7 +51,7 @@ public class ListOfTasks {
 
     }
 
-    void printList(ArrayList<Integer> foundIndexes){
+    public void printList(ArrayList<Integer> foundIndexes){
         int i  =1;
 
         ArrayList<String> messages = new ArrayList<String>();
@@ -90,7 +93,7 @@ public class ListOfTasks {
 //
 //    }
 
-    void addTasks(String s , int type) throws IncompleteCommandException, ParseException {
+    public void addTasks(String s, int type) throws IncompleteCommandException, ParseException {
 
         TaskList.addTasks(list , s, type);
 //
@@ -124,7 +127,7 @@ public class ListOfTasks {
 //
     }
 //
-    void deleteTask(int toBeDeleted){
+public void deleteTask(int toBeDeleted){
         TaskList.deleteTask(list , toBeDeleted);
 //
 //
@@ -139,7 +142,7 @@ public class ListOfTasks {
 //        Storage.saveToFile(list);
     }
 //
-    void complete(int completedTaskIndex){
+public void complete(int completedTaskIndex){
         TaskList.complete(list, completedTaskIndex);
 //        list.get(completedTaskIndex).setDone(true);
 //        printLine();
@@ -150,7 +153,7 @@ public class ListOfTasks {
 //        Storage.saveToFile(list);
     }
 //
-    ArrayList<Integer> find (String s){
+public ArrayList<Integer> find(String s){
         return TaskList.find(list,s);
 //        ArrayList<Integer> foundIndexes = new ArrayList<Integer>();
 //        int i = 0;
@@ -164,7 +167,7 @@ public class ListOfTasks {
 //        return foundIndexes;
     }
 
-    void completeCommand(String s){
+    public void completeCommand(String s){
 
 
 

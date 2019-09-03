@@ -1,3 +1,5 @@
+package com.pradeep.duke;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +9,7 @@ public class MyDate {
     private Date date;
     private String dateStr;
 
-    MyDate(String s) throws ParseException {
+    public MyDate(String s) throws ParseException {
 
         this.dateStr = s;
 

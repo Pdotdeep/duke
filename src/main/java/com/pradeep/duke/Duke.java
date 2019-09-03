@@ -1,3 +1,9 @@
+package com.pradeep.duke;
+
+
+import com.pradeep.duke.Activities.*;
+import com.pradeep.duke.Exceptions.*;
+import com.pradeep.duke.Processing.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
