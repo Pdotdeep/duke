@@ -9,14 +9,6 @@ import com.pradeep.duke.Exceptions.*;
 public class ListOfTasks {
     private ArrayList<Task> list;
 
-//    final int TODOOFFSET = 5;
-//    final int DEADLINEOFFSET = 9;
-//    final int EVENTOFFSET = 6;
-//
-//    static final int TODO = 1;
-//    static final int DEADLINE = 2;
-//    static final int EVENT = 3;
-
     void initiateDuke(){
         UI.printMsg("Hello! I am Duke" , "What can i do for you?" );
     }
@@ -39,16 +31,6 @@ public class ListOfTasks {
         UI.printTasks(this.list);
 
 
-//        UI.printLine();
-//        for(Task item : this.list){
-//            String respondMsg = "";
-//            respondMsg += (i + ". ");
-//            respondMsg += item.toString();
-//            i++;
-//            UI.echo(respondMsg);
-//        }
-//        UI.printLine();
-
     }
 
     public void printList(ArrayList<Integer> foundIndexes){
@@ -67,104 +49,21 @@ public class ListOfTasks {
         UI.printMsges(messages);
     }
 
-//    public String[] getNameAndDate(String s , int startOffset) throws IncompleteCommandException {
-//        int endIndex = s.indexOf('/');
-//
-//        if(s.length() <= startOffset){
-//            if(startOffset == TODOOFFSET){
-//                throw new IncompleteCommandException("todo");
-//            }else if(startOffset == DEADLINEOFFSET){
-//                throw new IncompleteCommandException("deadline");
-//            }else if(startOffset == EVENTOFFSET){
-//                throw new IncompleteCommandException("event");
-//            }
-//
-//        }
-//        if(endIndex == -1 && startOffset == DEADLINEOFFSET){ throw new IncompleteCommandException("deadline"); }
-//        if(endIndex == -1 && startOffset == EVENTOFFSET){ throw new IncompleteCommandException("event"); }
-//        if(endIndex == -1){
-//            String taskName = s.substring(startOffset);
-//            return new String[]{taskName};
-//        }
-//        String taskName = s.substring(startOffset , endIndex);
-//        String dateBy = s.substring(endIndex + 4);
-//
-//        return new String[]{taskName , dateBy};
-//
-//    }
-
     public void addTasks(String s, int type) throws IncompleteCommandException, ParseException {
 
         TaskList.addTasks(list , s, type);
-//
-//        Task tempTask;
-//
-//        if (type == TODO){
-//            String[] breakdown = getNameAndDate(s , TODOOFFSET);
-//            tempTask = new ToDos(breakdown[0]);
-//
-//        }else if (type == DEADLINE){
-//            String[] breakdown = getNameAndDate(s , DEADLINEOFFSET);
-//            MyDate dateBy = new MyDate(breakdown[1]);
-//            tempTask = new Deadlines(breakdown[0] , dateBy);
-//
-//
-//        }else{
-//            String[] breakdown = getNameAndDate(s , EVENTOFFSET);
-//            MyDate dateBy = new MyDate(breakdown[1]);
-//            tempTask = new Events(breakdown[0] , dateBy);
-//
-//        }
-//        list.add(tempTask);
-//
-//        printLine();
-//        echo( "Got it. I've added this task: ");
-//        echo(tempTask.toString());
-//        echo("Now you have "+ list.size() + " items in the list" );
-//        printLine();
-//
-//        Storage.saveToFile(list);
-//
     }
 //
 public void deleteTask(int toBeDeleted){
         TaskList.deleteTask(list , toBeDeleted);
-//
-//
-//        Task temp = list.get(toBeDeleted);
-//        list.remove(toBeDeleted);
-//        printLine();
-//        echo("Noted. I have removed this task");
-//        echo("  " + temp.toString());
-//        echo("Now you have "+ list.size() + " items in the list" );
-//        printLine();
-//
-//        Storage.saveToFile(list);
     }
 //
 public void complete(int completedTaskIndex){
         TaskList.complete(list, completedTaskIndex);
-//        list.get(completedTaskIndex).setDone(true);
-//        printLine();
-//        echo("Nice! i have marked this task as done:");
-//        echo("  " + list.get(completedTaskIndex).toString());
-//        printLine();
-//
-//        Storage.saveToFile(list);
     }
 //
 public ArrayList<Integer> find(String s){
         return TaskList.find(list,s);
-//        ArrayList<Integer> foundIndexes = new ArrayList<Integer>();
-//        int i = 0;
-//        for(Task a : list){
-//            if(a.contains(s)){
-//                foundIndexes.add(i);
-//            }
-//            i++;
-//        }
-//
-//        return foundIndexes;
     }
 
     public void completeCommand(String s){

@@ -21,7 +21,8 @@ public class Duke {
 
         ListOfTasks newDuke = new ListOfTasks(Storage.loadTasks());
 
-        while(true){
+        while(true && scan.hasNext()){
+
             String s = scan.nextLine();
 
             try{

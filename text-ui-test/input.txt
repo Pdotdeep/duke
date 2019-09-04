@@ -1,3 +1,11 @@
-list
+todo lets go home
+deadline fort canning park /by Saturday 2pm
+event polygon /at Sunday 3pm
 done 1
+done 2
+list
 delete 2
+find fort
+done 5
+delete 6
+bye

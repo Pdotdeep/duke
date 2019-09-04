@@ -48,8 +48,9 @@ public class Storage {
     }
 
     public static void saveToFile(ArrayList<Task> list){
+        String filepath = System.getProperty("user.dir");
         try{
-            FileWriter fw=new FileWriter("./data/duke.txt");
+            FileWriter fw=new FileWriter(filepath + "/data/duke.txt");
             String formattedList = getFormattedList(list);
 
             fw.write(formattedList);
@@ -63,7 +64,9 @@ public class Storage {
         ArrayList<Task> list = new ArrayList<Task>();
 
         try{
-            File file = new File("./data/duke.txt");
+            String filepath = System.getProperty("user.dir");
+//            System.out.println(filepath);
+            File file = new File(filepath + "/data/duke.txt");
             Scanner input=new Scanner(file);
             input.useDelimiter(" +");
 
