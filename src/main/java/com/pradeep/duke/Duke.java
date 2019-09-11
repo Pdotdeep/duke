@@ -32,7 +32,6 @@ public class Duke {
             String s = scan.nextLine();
 
             try{
-                newDuke.completeCommand(s);
                 Parser.Commands command = Parser.getCommand(s);
 //                int payload = Parser.getPayload(command , s);
 

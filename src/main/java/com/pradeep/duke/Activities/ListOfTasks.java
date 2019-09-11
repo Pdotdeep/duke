@@ -81,10 +81,5 @@ public class ListOfTasks {
         return TaskList.find(list,s);
     }
 
-//    public void completeCommand(String s){
-//
-//
-//
-//    }
 
 }
