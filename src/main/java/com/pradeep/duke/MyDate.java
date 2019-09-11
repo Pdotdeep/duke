@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class MyDate {
 
-    private Date date;
+    private Date date = null;
     private String dateStr;
 
     public MyDate(String s) throws ParseException {

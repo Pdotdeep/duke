@@ -4,7 +4,7 @@ event polygon /at Sunday 3pm
 done 1
 done 2
 list
-delete 2
+delete 1
 find fort
 done 5
 delete 6

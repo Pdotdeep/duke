@@ -15,17 +15,19 @@ public class Parser {
             String[] tokens=s.split("\\s");
             if(tokens[0].equals("done")){
                 return Commands.done;
-            }else if(tokens[0].equals("todo")){
+            }else if(tokens[0].contains("todo")){
                 return Commands.todo;
 
-            }else if(tokens[0].equals("deadline")){
+            }else if(tokens[0].contains("deadline")){
                 return Commands.deadline;
 
-            }else if(tokens[0].equals("event")){
+            }else if(tokens[0].contains("event")){
                 return Commands.event;
-            }else if(tokens[0].equals("delete")){
+            }else if(tokens[0].contains("delete")){
                 return Commands.delete;
 
+            }else if(tokens[0].contains("find")){
+                return Commands.find;
             }else {
                 return Commands.unknown;
             }

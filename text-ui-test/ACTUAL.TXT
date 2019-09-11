@@ -35,11 +35,11 @@
 	________________________________________________
 	________________________________________________
 	Noted. I have removed this task
-	  [D][✓] fort canning park  (by: Saturday 2pm)
+	  [T][✓] lets go home
 	Now you have 2 items in the list
 	________________________________________________
 	________________________________________________
-	☹ OOPS!!! I'm sorry, but I don't know what that means :-(
+	1. [D][✓] fort canning park  (by: Saturday 2pm)
 	________________________________________________
 	________________________________________________
 	There is no such item in the list !!
