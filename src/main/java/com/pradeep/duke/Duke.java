@@ -8,6 +8,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main Class for duke
+ */
 public class Duke {
 
     static final int TODO = 1;
@@ -16,6 +19,9 @@ public class Duke {
 
 
 
+    /**
+     * Entry function into the program. Receives string command from command line and processes it into the type of the command before processing
+     */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 

@@ -1,4 +1,9 @@
 package com.pradeep.duke.Exceptions;
+
+
+/**
+ * Unknown Command Exception
+ */
 public class UnknownCommandException extends Exception {
 
     public UnknownCommandException(String err){

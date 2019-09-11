@@ -6,6 +6,9 @@ import com.pradeep.duke.Exceptions.*;
 import com.pradeep.duke.Activities.*;
 import com.pradeep.duke.MyDate;
 
+/**
+ * Class to handle operations on list of tasks.
+ */
 public class TaskList {
 
     static final int TODOOFFSET = 5;
@@ -16,6 +19,10 @@ public class TaskList {
     static final int DEADLINE = 2;
     static final int EVENT = 3;
 
+
+    /**
+     * get the name of the task and the date from the string command
+     */
     public static String[] getNameAndDate(String s , int startOffset) throws IncompleteCommandException {
         int endIndex = s.indexOf('/');
 
@@ -41,6 +48,10 @@ public class TaskList {
         return new String[]{taskName , dateBy};
 
     }
+
+    /**
+     * Adds the new task to the list of tasks
+     */
     public static void addTasks( ArrayList<Task> list , String s , int type) throws IncompleteCommandException, ParseException {
 
         Task tempTask;
@@ -75,6 +86,11 @@ public class TaskList {
 
     }
 
+    /**
+     * Deletes the corresponding task from the list of the task
+     * @param toBeDeleted the task to be deleted
+     * @param list the list of tasks
+     */
     public static void deleteTask(ArrayList<Task> list ,int toBeDeleted){
 
 
@@ -91,6 +107,11 @@ public class TaskList {
         Storage.saveToFile(list);
     }
 
+    /**
+     * Set the corresponding task from the list of the task as completed
+     * @param completedTaskIndex the task to be set as complete
+     * @param list the list of tasks
+     */
     public static void complete(ArrayList<Task> list ,int completedTaskIndex){
         list.get(completedTaskIndex).setDone(true);
 //        UI.printLine();
@@ -100,6 +121,11 @@ public class TaskList {
         Storage.saveToFile(list);
     }
 
+    /**
+     * find the task from the list of tasks
+     * @param s the keyword to search
+     * @param list the list of tasks
+     */
     public static ArrayList<Integer> find (ArrayList<Task> list , String s){
         ArrayList<Integer> foundIndexes = new ArrayList<Integer>();
         int i = 0;

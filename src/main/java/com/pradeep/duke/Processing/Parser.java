@@ -1,10 +1,23 @@
 package com.pradeep.duke.Processing;
 
+/**
+ * Parser class to process string command into the respective command enum
+ */
 public class Parser {
+
+    /**
+     * Enum commands accepted by Duke
+     */
     public enum Commands{
         delete, list , todo, event , deadline , find ,bye, done ,unknown
     }
 
+
+    /**
+     * Process the string command into enum variable.
+     * @param s String Command
+     * @return returns the command
+     */
     public static Commands getCommand(String s){
 
         if(s.equals("bye")){
@@ -35,6 +48,11 @@ public class Parser {
 
     }
 
+    /**
+     * Parses the string Commmand received to return the payload of the command
+     * @param c The type of command
+     * @param s the string command
+     */
     public static String getPayload(Commands c, String s){
 
         String[] tokens=s.split("\\s");

@@ -1,5 +1,8 @@
 package com.pradeep.duke.Activities;
 
+/**
+ * Todos class
+ */
 public class ToDos extends Task{
 
 

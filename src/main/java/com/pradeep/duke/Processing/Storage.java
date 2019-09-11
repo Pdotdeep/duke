@@ -13,12 +13,21 @@ import com.pradeep.duke.Exceptions.*;
 import com.pradeep.duke.Processing.*;
 import com.pradeep.duke.MyDate;
 
+
+/**
+ * Class to save and load data to and from a text file
+ */
 public class Storage {
 
     static final int TODO = 1;
     static final int DEADLINE = 2;
     static final int EVENT = 3;
 
+
+    /**
+     * Parses the List into a formatted string that will be saved into the file
+     * @param list the list of todo, events , and deadlines
+     */
     public static String getFormattedList(ArrayList<Task> list){
 
 
@@ -47,6 +56,10 @@ public class Storage {
 
     }
 
+    /**
+     * Saves the formatted String into the text file
+     * @param list the list of todo, events , and deadlines
+     */
     public static void saveToFile(ArrayList<Task> list){
         String filepath = System.getProperty("user.dir");
         try{
@@ -59,6 +72,10 @@ public class Storage {
 
     }
 
+    /**
+     * Loads from text file
+     * @return list of todo, events , and deadlines
+     */
     public static ArrayList<Task> loadTasks(){
 
         ArrayList<Task> list = new ArrayList<Task>();

@@ -1,5 +1,9 @@
 package com.pradeep.duke.Activities;
 
+
+/**
+ * Task Super class
+ */
 public class Task {
     private boolean Done = false;
     private String TaskName;
@@ -22,6 +26,9 @@ public class Task {
         this.Done = false;
     }
 
+    /**
+     * checks if the task name contains string s
+     */
     public boolean contains(String s){
         return TaskName.toLowerCase().contains(s.toLowerCase());
     }

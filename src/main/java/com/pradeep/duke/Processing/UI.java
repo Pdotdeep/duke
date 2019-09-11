@@ -3,6 +3,10 @@ package com.pradeep.duke.Processing;
 import java.util.ArrayList;
 import com.pradeep.duke.Activities.*;
 
+
+/**
+ * Class to handle all the print messages
+ */
 public class UI {
 
     static void printLine(){

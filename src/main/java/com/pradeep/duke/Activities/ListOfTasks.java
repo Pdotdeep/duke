@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import com.pradeep.duke.Processing.*;
 import com.pradeep.duke.Exceptions.*;
 
+
+/**
+ * Class to manage the list of tasks
+ */
 public class ListOfTasks {
     private ArrayList<Task> list;
 
@@ -19,6 +23,9 @@ public class ListOfTasks {
 
     }
 
+    /**
+     * Print the message before closing the app
+     */
     public void closeApp(){response("Bye. Hope to see you again Soon!");}
 
     void response(String s){
@@ -29,15 +36,15 @@ public class ListOfTasks {
         int i  =1;
 
         UI.printTasks(this.list);
-
-
     }
 
+    /**
+     * Prints the list of all found task to the screen
+     */
     public void printList(ArrayList<Integer> foundIndexes){
         int i  =1;
 
         ArrayList<String> messages = new ArrayList<String>();
-//        UI.printLine();
         for(int a : foundIndexes){
             String respondMsg = "";
             respondMsg += (i + ". ");
@@ -45,31 +52,39 @@ public class ListOfTasks {
             i++;
             messages.add(respondMsg);
         }
-//        UI.printLine();
         UI.printMsges(messages);
     }
 
-    public void addTasks(String s, int type) throws IncompleteCommandException, ParseException {
+    /**
+     * Adds new tasks to the task list
+     */
+    public void addTasks(String s, int type) throws IncompleteCommandException, ParseException { TaskList.addTasks(list , s, type); }
 
-        TaskList.addTasks(list , s, type);
-    }
-//
-public void deleteTask(int toBeDeleted){
+    /**
+     * Delete tasks from the task list
+     */
+    public void deleteTask(int toBeDeleted){
         TaskList.deleteTask(list , toBeDeleted);
     }
-//
-public void complete(int completedTaskIndex){
+
+    /**
+     * set the particular task in the task list to completed state
+     */
+    public void complete(int completedTaskIndex){
         TaskList.complete(list, completedTaskIndex);
     }
-//
-public ArrayList<Integer> find(String s){
+
+    /**
+     * find tasks from the task list using key word
+     */
+    public ArrayList<Integer> find(String s){
         return TaskList.find(list,s);
     }
 
-    public void completeCommand(String s){
-
-
-
-    }
+//    public void completeCommand(String s){
+//
+//
+//
+//    }
 
 }

@@ -4,6 +4,9 @@ package com.pradeep.duke.Activities;
 import com.pradeep.duke.MyDate;
 import java.util.Date;
 
+/**
+ * Deadlines Task
+ */
 public class Deadlines extends Task {
 
     private MyDate DeadLineDate;

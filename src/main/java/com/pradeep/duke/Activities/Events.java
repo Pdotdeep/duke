@@ -4,6 +4,10 @@ import java.util.Date;
 
 import com.pradeep.duke.MyDate;
 
+
+/**
+ * Events class
+ */
 public class Events extends Task{
     private MyDate EventDate;
     public Events(String TaskName, MyDate EventDate){
